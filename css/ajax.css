@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.jumbotron {
+    background-image: url("../img/pocetna.jpg");
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.more-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.more-section h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.more-section h4 {
+    margin-left: 50px;
+    text-align: left;
+    font-weight: lighter;
+    margin-bottom: 20px;
+}
+
+.more-section p {
+    text-align: justify;
+}
+
+.more-section img {
+    height: 100%;
+    width: 100%;
+}
+
+
+.more-section li {
+    text-align: justify;
+    margin-left: 50px;
+}
+
+.main-footer .text-foter {
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+}

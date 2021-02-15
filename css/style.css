@@ -1,0 +1,273 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.jumbotron {
+    background-image: url("../img/pocetna.jpg");
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.more-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.more-section:nth-of-type(1) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.more-section:nth-of-type(2) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.more-section:nth-of-type(3) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.more-section:nth-of-type(4) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.more-section h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.more-section p {
+    text-align: center;
+}
+
+.more-section .more-item {
+    background-color: #0974ba;
+    -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,1);
+    -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,1);
+    box-shadow: 0 0 10px 0 rgba(0,0,0,1);
+}
+
+.more-section .more-item {
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    transition: 0.2s;
+    border-radius: 20px;
+}
+
+.more-section .more-item:hover {
+    background-color: #0458a1;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.more-section .more-item img {
+    height: 100%;
+    width: 100%;
+}
+
+.more-section .btn {
+    width: 50%;
+    border: 2px solid #0458a1;
+    background-color: #fff;
+    color: #0458a1;
+    transition: 0.2s;
+    font-weight: bold;
+} 
+
+.more-section .btn:hover {
+    width: 50%;
+    border: 2px solid #0974ba;
+    color: #fff;
+    background-color: #0974ba;
+    font-weight: bold;
+} 
+
+.main-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.main-section {
+    background-color: #0974ba;
+    background-size: cover;
+    padding-top: 100px;
+    background-position:unset;
+}
+
+.main-section h2 {
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.main-section p {
+    color: #fff;
+    text-align: center;
+    font-size: 25px;
+}
+
+.main-section img {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.main-section .btn {
+    width: 50%;
+    border: 2px solid #0458a1;
+    background-color: #fff;
+    color: #0458a1;
+    transition: 0.2s;
+    font-weight: bold;
+} 
+
+.main-section .btn:hover {
+    width: 50%;
+    border: 2px solid #0c5485;
+    color: #fff;
+    background-color: #0c5485;
+    font-weight: bold;
+} 
+
+.tim-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.tim-section h2 {
+    color: #192a39;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.tim-section p {
+    color: #192a39;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.tim-section .tim {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    margin-bottom: 10px;
+    /* border: 2px solid #192a39; */
+}
+
+.tim-section .tim .tim-podaci {
+    background-color: rgba(0,0,0,0.3);
+    height: 100%;
+    padding: 25px;
+    position: relative;
+}
+
+.tim-section .tim .tim-podaci .podaci {
+    position: absolute;
+    bottom: 25px;
+}
+
+.tim-section .tim .tim-podaci .podaci::before {
+    content: "";
+    width: 3px;
+    height: 55px;
+    background-color: #fff;
+    position: absolute;
+    left: -10px;
+    top: 5px;
+}
+
+.contact-section h2 {
+    color: #192a39;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.contact-section p {
+    color: #192a39;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.contact iframe {
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+.contact {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background-image: url("../img/form.png");
+    background-size: cover;
+    color: #fff;
+    background-position: center;
+}
+
+.contact h2 {
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.contact form {
+    background-color: rgba(0,0,0,0.5);
+    border: 2px solid rgba(255,255,255,0.2);
+    padding: 35px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.contact form textarea {
+    width: 100%;
+    border: 0;
+    outline: none;
+    margin-bottom: 15px;
+    height: 100px;
+    padding: 10px;
+}
+
+.contact form input {
+    width: 100%;
+    border: 0;
+    outline: none;
+    margin-bottom: 15px;
+    height: 40px;
+    padding: 10px;
+}
+
+.contact form button {
+    width: 100%;
+    border: 0;
+    outline: none;
+    margin-top: 31px;
+    margin-bottom: 15px;
+    height: 40px;
+    background-color: #0974ba;
+    color: #fff;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.contact form button:hover {
+    color: #0974ba;
+    background-color: #fff;
+}
+
+.main-footer .text-foter {
+    text-align: center;
+    color: #0974ba;
+    font-weight: bold;
+    font-size: 15px;
+}
