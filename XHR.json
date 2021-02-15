@@ -1,0 +1,38 @@
+[
+    {
+        "svojstvo": "readyState",
+        "opis": "Numerička vrednost kojom se opisuje stanje objekta moguća stanja su: 0, 1, 2, 3 i 4 <br>Stanje 0: početna vrednost objekta nakon kreiranja <br>Stanje 1: metoda open() je uspešno izvršena; u ovoj fazi se mogu postavljati hederi zahteva funkcijom setRequestHeader() <br>Stanje 2: svi hederi odgovora su pristigli <br>Stanje 3: počinje se sa čitanjem dela sa podacima odgovora <br>Stanje 4: deo sa podacima odgovora je uspešno učitan ili je došlo do greške"
+    },
+    {
+        "svojstvo": "responsType",
+        "opis": "Tekstualni podatak koji odgovara tipu serverskog odgovora moguće vrednosti su: “”, “arraybuffer”, “blob”, “document”, “json” i “text”"
+    },
+    {
+        "svojstvo": "response",
+        "opis": "Svojstvo kojim se pristupa telu serverskog odgovora"
+    },
+    {
+        "svojstvo": "responseText",
+        "opis": "Vraća odgovor servera kao string"
+    },
+    {
+        "svojstvo": "responseXML",
+        "opis": "Vraća odgovor servera kao XML data"
+    },
+    {
+        "svojstvo": "status",
+        "opis": "Numerička vrednost koja odgovara HTTP satusu serverskog odgovora. Najviše nas interesuje status 200 – indikacija da je zahtev obradjen uspešno"
+    },
+    {
+        "svojstvo": "statusText",
+        "opis": "Tekstualna poruka koja odgovara HTTP poruci serverskog odgovora (npr. “Not Found” or “OK”)"
+    },
+    {
+        "svojstvo": "timeout",
+        "opis": "Numerička vrednost nakon koje će HTTP zahtev završiti; trebalo bi da timeout vrednost bude nešto veća nego vreme predviđeno za generisanje odgovora; vrednost responseText svojstva će u tom slučaju biti null"
+    },
+    {
+        "svojstvo": "withCredentials",
+        "opis": "Boolean-ova vrednost koja definiše da li je za cross-site Access-Control zahtev potrebni credentials kao što je cookies, autorizovani header ili TLS sertifikat."
+    }
+]

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/xml.css">
+    <meta name="author" content="Miloš Dinčev">
+    <meta name="author" content="Emilija Dinčev">
+    <title>XMLHttpRequest</title>
+</head>
+
+<body>
+    <header class="pt-0 text-center bg-dark w-100 d-block mx-0 px-0 w-100 h-100">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0974ba;">
+            <div class="container">
+                <a class="navbar-brand" href="Pocetna.html">
+                    <img src="img/ajax-1.png" width="75" height="35" alt="ajax" loading="ajax">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="hero-section">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+            </div>
+        </div>
+    </div>
+
+    <div class="more-section">
+        <div class="container">
+            <h2><i>XMLHttpRequest</i></h2>
+            <p>
+                XMLHttpRequest je temelj AJAX-a i predstavlja JavaScript objekat koji se koristi za slanje HTTP zahteva.
+                Dizajniran od strane Microsofta a zatim prihvaćen i od ostalih velikih pretraživača i 2014-te postao
+                standard u W3C.
+            </p>
+            <h4><i>1. Kreiranje Ajax zahteva</i></h4>
+            <p>
+                Ajax se "aktivira" kreiranjem posebnog XMLHttpRequest objekta u JavaScriptu. Ovaj objekat može da šalje
+                podatke na server pomoću standardnih HTTP zahteva (najčešće <b>GET</b> ili <b>POST</b>), kao i da dočekuje odgovor
+                koji može biti formatiran kao XML ili običan tekst. Server preuzima podatke na isti način kao što bi to
+                radio u bilo kojoj drugoj situaciji. Rezultat je bilo šta što programer želi - pa makar i "klasični"
+                HTML. Ceo postupak slanja zahteva i primanja rezultata poveren je jednom specijalnom objektu:
+                XMLHttpRequest. Da bismo bilo šta mogli da radimo sa Ajaxom, prvo moramo da kreiramo instancu tog
+                objekta:
+            </p>
+            <code>
+                var zahtev = <span>new XMLHttpRequest()</span>;
+            </code>
+            <p>
+                U našem JavaScript programu možemo za svaki poziv kreirati novi objekat ili jednom napravljen objekat
+                koristiti da uputimo više zahteva. Sve zavisi od našeg stila programiranja. Sa svojstvima, metodima i
+                događajima ovog objekta ćemo se detaljno upoznati kasnije.
+            </p>
+            <p>
+                Za sada, hajde da vidimo šta nam je minimalno potrebno za upućivanje jednog Ajax zahteva. Kada smo
+                napravili Ajax objekat, možemo da ga koristimo. Neka svojstva (metodi) ovog objekta su bitna za slanje,
+                a neka za primanje podataka.
+            </p>
+            <p>
+                <i><b>Prva stvar vezana za upućivanje zahteva je njegova inicijalizacija. U stvari ovde praktično
+                definišemo sam zahtev:</b></i>
+            </p>
+            <code>
+                zahtev<span>.open(<mark>metod</mark>, <mark>URL</mark>)</span>;
+            </code>
+            <li>
+                metod - zadaje se HTTP metod upućivanja zahteva serveru, najčešće su to vrednosti "GET" i "POST"
+                (baš velikim slovima)
+            </li>
+            <li>
+                URL - zadaje se putanja do programa na serveru od koga se očekuje rezultat. Ako je u pitanju GET
+                zahtev, onda URL obično sadrži i parametre, odnosno podatke koje šaljemo serveru.
+            </li>
+            <p>
+                Ovako pripremljenom zahtevu možemo podesiti još neke stvari (npr. možemo mu definisati zaglavlje metodom
+                setRequestHeader(), ako je potrebno), ali generalno, zahtev je i ovako (u većini jednostavnijih
+                slučajeva) praktično spreman za slanje:
+            </p>
+            <code>zahtev<span>.send()</span>;<br>
+                zahtev<span>.send(<mark>podaci</mark>)</span>;
+            </code>
+            <p>
+                Podaci mogu i ne moraju da se zadaju. Kada koristimo GET zahtev, obično pozivamo ovaj metod bez
+                parametara.
+            </p>
+            <li>
+                podaci - ono što se šalje uz zahtev, obično kada je u pitanju "POST" HTTP metod.
+            </li>
+            <p>
+                Ne zaboravite, posle poziva ovog metoda, JavaScript program prosto nastavlja sa izvršavanjem, kao da se
+                ništa nije desilo. Kada stigne odgovor servera, poziva se neka od callback funkcija koje smo definisali
+                kao event handlere za događaje Ajax objekta.
+            </p>
+            <h4><i>2. Dobijanje odgovora sa servera</i></h4>
+            <p>
+                Negde između kreiranja XMLHttpRequest objekta i slanja zahteva pozivanjem send() metode bismo morali da
+                definišemo funkciju koja "hvata" odgovor servera. Ovo je obična callback funkcija, koja nema čak ni
+                parametre.
+            </p>
+            <p>
+                Postoji nekoliko definisanih događaja koji "okidaju" kada stignu podaci sa servera. Istorijski,
+                najkorišćeniji je onreadystatechange (svojevremeno je to bio i jedini događaj), koji "okida" svaki put
+                kada se promeni vrednost svojstva readyState. Ovo svojstvo je numeričkog tipa i menja mu se vrednost
+                zavisno od toga u kom "statusu" je trenutno naš zahtev. Zbog toga, događaj "readyState Change" okida
+                nekoliko puta tokom slanja/primanja podataka, a na nama je da u funkciji proverimo zbog čega (tj. koja
+                je vrednost svojstva readyState).
+            </p>
+            <code>zahtev<span>.onreadystatechange</span> = function() { <br>
+                if (zahtev<span>.readyState</span> == <mark>4</mark>) { <br>
+                  // stigao rezultat sa servera <br>
+                } <br>
+              }; 
+            </code>
+            <p>
+                Ipak, za početak ćemo se držati novijeg događaja onload, koji se aktivira kada dobijemo odgovor sa
+                servera (i nije došlo do greške).
+            </p>
+            <code>zahtev<span>.onload</span> = function() { <br>
+                // obrada podataka sa servera <br>
+              };
+            </code>
+            <p>
+                Ostaje još samo da vidimo kako da pristupimo konkretnim podacima. Ajax objekat ima još dva značajna
+                svojstva, a to su responseText i responseXML. U prvom se nalazi "sirov" rezultat, onako kako ga je
+                server poslao, dok se u drugom nalazi XML struktura, ali samo ako je odgovor servera bio u tom obliku i
+                to baš-baš ispravan (u parsiranju XML-a se čak ni najmanje greške ne tolerišu, za razliku od recimo
+                HTML-a).
+            </p>
+            <p>
+                Način na koji ćemo obrađivati podatke zavisi samo od nas - kako smo odredili da server "pakuje" podatke
+                i kako želimo da ih iščitavamo. Da li ćemo koristiti String funkcije i regularne izraze da "čupamo"
+                delove teksta ili će podaci biti u nekoj "zvaničnoj" strukturi poput JSON, XML ili HTML podataka,
+                određeno je našim afinitetima i time šta je u toj situaciji najefikasnije sa stanovišta brzine prenosa
+                podataka i lakoće obrade.
+            </p>
+            <code>zahtev<b>.onload</b> = function() { <br>
+                console.log( zahtev<span>.responseText</span> ); <br>
+              };
+            </code>
+        </div>
+    </div>
+
+    <div class="main-section">
+        <div class="container">
+            <h2><i>Svojstva XHR objekta</i></h2>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-5">
+                    <button id="show_table" type="button" class="btn btn1">Prikaži sadržaj stranice pomoću JavaScripta</button>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+        <div class="container tabela">
+            
+        </div>
+    </div>
+
+    <div class="main2-section">
+        <div class="container">
+            <h2><i>Metode XHR objekta</i></h2>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-5">
+                    <button id="show_table2" type="button" class="btn btn2">Prikaži sadržaj stranice pomoću JavaScripta</button>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+        <div class="container tabela2">
+            
+        </div>
+    </div>
+
+    <footer class="main-footer pt-2" style="background-color: #0974ba;">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p class="text-foter p-2"><i>Copyright &copy; 2021, FTN Cacak</i></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        
+    <script src="js/XMLHttpRequest.js"></script>
+</body>
+
+</html>

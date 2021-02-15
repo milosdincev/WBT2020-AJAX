@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/ajax.css">
+    <meta name="author" content="Miloš Dinčev">
+    <meta name="author" content="Emilija Dinčev">
+    <title>AJAX</title>
+</head>
+
+<body>
+    <header class="pt-0 text-center bg-dark w-100 d-block mx-0 px-0 w-100 h-100">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0974ba;">
+            <div class="container">
+                <a class="navbar-brand" href="Pocetna.html">
+                    <img src="img/ajax-1.png" width="75" height="35" alt="ajax" loading="ajax">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="AJAX.html" id="navbarDropdown"
+                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                AJAX
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="AJAX.html">Uvod u AJAX</a>
+                                <a class="dropdown-item" href="Funkcionalnost.html">Funkcionalnost</a>
+                                <a class="dropdown-item" href="Problem.html">Problem sa keširanjem stranica</a>
+                                <a class="dropdown-item" href="Primeri.html">Primeri korišćenja</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="hero-section">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+            </div>
+        </div>
+    </div>
+
+    <div class="more-section">
+        <div class="container">
+            <h2><i>AJAX</i></h2>
+            <p>
+                <b>Ajax</b> je skraćenica od <b>“Asinhroni JavaScript + XML”</b> (iako se danas uglavnom koristi JSON), a 
+                predstavlja grupu tehnologija namenjenu za dinamičko kreiranje Web stranica. Korišćenjem AJAX-a poboljšavamo
+                kvalitet interkativnosti sa korisnikom, uz želju da što više liči na desktop aplikacije (prema brzini
+                interakcije). Termin AJAX prvi put je upotrebljen u februaru 2005. godine, kada je Džesi Džejms Garet
+                (Jesse James Garret), dizajner informacionih sistema i direktor kompanije Adaptive Path, pokušao da nađe
+                odgovarajuću skraćenicu za grupu tehnologija koju je predlagao svom klijentu. Tehnologije potrebne za
+                postojanje AJAX-a su postojale i ranijih godina ali je glavni razlog za slabiju upotrebu svih tehnika
+                korišćenih u AJAX-u, nedostatak podrške od strane web čitača.
+            </p>
+            <p>
+                Najbitnija stvar koja je uticala na brz razvoj AJAX-a jeste trenutak na tržištu u kojem su veliki igrači
+                Internet industrije želeli da težište korišćenja računara prenesu sa desktopa na web stranice, za šta im
+                je bila potrebna upravo tehnologija.
+            </p>
+            <p>
+                Ideja na kojoj se zasniva Ajax jeste da se stranica na kojoj se odvija Web aplikacija učita samo jednom,
+                a da se svaka dalja komunikacija sa serverom izvršava asinhrono bez blokiranja interfejsa i <i>bez ponovnog
+                učitavanja čitave stranice.</i> 
+            </p>
+            <p>
+                Da bi se shvatio koncept AJAX tehnologija, neophodno je objasniti razliku izmenu sinhronog i asinhronog
+                prenosa podataka između klijenta i servera. U <i>sinhronom</i> načinu rada procesi se izvode sekvencijalno.
+                Izmedju dva procesa postoji jaz koji je jednak vremenu izvodjenja drugog procesa. Dakle, osnovni proces
+                komunikacije izmedju klijenata i servera može se opisati na sledeći način: klijent šalje zahtev ka
+                serveru, podaci se prenose ka serveru, server obrađuje podatke I zatim ih vraća klijentu. Ono što je
+                primetno sa slike dole je da postoji vremenski interval izmedju pravljenja zahteva i odgovora na isti.
+                Za vreme tog intervala klijent čeka, bez mogućnosti da pravi nove zateve ili nastavi svoje korišćenje
+                web aplikacije. Može se zaključiti da kod sinhronog prenosa podataka ne postoji mogućnost za
+                eliminisanje čekanja zato što se procesi obavljaju jedan za drugim, čak i ukoliko za to nema potrebe.
+            </p>
+            <img src="img/sihroni.jpg" alt="sihroni">
+            <p>
+                Kod <i>asinhronog</i> prenosa podataka izmedju klijenata i servera karakteristično je da se korisničko
+                korišćenje web aplikacije nikada ne prekida. Za razliku od sinhronog režima rada, ovde korisnik može da
+                nastavi korišćenje aplikacije nezavisno od toga hoće li sistem odgovoriti na njegov zahtev neposredno
+                ili nešto kasnije. Ono što je uočljivo na prvi pogled su neprekidne linije koje označavaju aktivnosti
+                korisnika i AJAX-ovog engine-a. Klasične aplikacije funkcionišu tako što šalju zahtev, server ih
+                obrađuje i konačno vraća odgovor. Međutim, sve vreme rada servera i aplikcaija je «zamrznuta». Kada
+                server kompletira rad, kao odgovoro korisnik dobija novu stranicu. Sa asinhronom komunikacijom u
+                pozadini se odvija komunikacija, a korisnik uopšte ne zna da se tako nešto dešava.
+            </p>
+            <img src="img/asihroni.jpg" alt="asihroni">
+            <p>
+                AJAX predstavlja web razvojnu tehniku za kreiranje interaktivnih web sadržaja. AJAX tehnologija se
+                zasniva na razmeni malih količina podataka sa serverom, kako korisnik ne bi stalno morao da osvežava
+                stranicu. Na taj način se omogućava potpuna interaktivnost, efikasnost i poboljšava funkcionisanje
+                stranice uopšte. AJAX nije tehnologija sam po sebi, već termin koji se odnosi na korišćenje grupe
+                tehnologija.
+            </p>
+            <ul><i><b>AJAX obuhvata:</b></i>
+                <li>prezentaciju baziranu na standardima koristeći XHTML i CSS;</li>
+                <li>dinamički prikaz i interakciju preko Document Object Model-a;</li>
+                <li>razmenu i manipulaciju nad podacima koristeći XML i XSLT;</li>
+                <li>asinhrono prikupljanje podataka uz pomoć XMLHttpRequest-a koji čini jezgro;</li>
+                <li>i JavaScript koji povezuje sve u celinu.</li>
+            </ul>
+            <p>
+                Ideja koja se krije iza AJAX-a jeste da se stranica na kojoj se odvija web aplikacija učita samo jednom,
+                a da se svaka dalja komunikacija sa serverom sakrije od očiju korisnika i obavlja bez ponovnog
+                učitavanja čitave stranice. Svaki prenos podataka između servera i klijenta (u slučaju AJAX-a to je
+                browser) vrši se u pozadini. Jasno je da je ovo nemoguće izvesti statičkim HTML-om, pa tu na scenu stupa
+                JavaScript. JavaScript je zadužen za komuniciranje sa serverom – slanje HTTP zahteva, prijem podataka sa
+                servera i njihov prikaz na stranici, a i interakcija sa korisnikom postiže se korišćenjem ovog jezika.
+            </p>
+            <ul><i><b>Neki od osnovnih principa na kojima bi trebalo da se zasnivaju AJAX aplikacije:</b></i>
+                <li>
+                    Minimalan protok - AJAX aplikacije bi trebalo da šalju i primaju sa servera što je moguće manje
+                    informacija
+                </li>
+                <li>
+                    AJAX aplikacije predstavljaju korisniku drugačije modele interakcije od tradicionalnih web
+                    aplikacija. Nasuprot “klik – čekaj“ prirodi standardnih web aplikacija, AJAX predstavlja modele
+                    interakcije koji su slični desktop aplikacijama. Bez obzira koji se model interakcije koristi,
+                    najbitnije je obezbediti konzistentnost kako bi korisnik znao šta treba sledeće da uradi.
+                </li>
+                <li>
+                    Izbegavaju se nepotrebni elementi na strani kao što su animacije ili delovi koji trepere.
+                </li>
+                <li>
+                    Izbegava se preuzimanje cele strane - celokupna komunikacija sa serverom, nakon učitavanja
+                    inicijalne web strane treba da bude zadatak AJAX engine–a.
+                </li>
+            </ul>
+            <p>
+                Suprotno uobičajenom gledištu, AJAX se zapravo mora posmatrati kao sasvim novi pristup primene već
+                postojećih tehnologija, te se ni u kom slučaju ne može smatrati novim programskim jezikom, kako ga ljudi
+                često karakterišu. Njegova primena je najpre vezana za stvaranje prijateljskog okruženja za zahteve
+                različitih korisnika, jer upravo primenom ove tehnologije se postiže da se određene web aplikacije
+                znatno jednostavnije koriste.
+            </p>
+            <p>
+                Ko god ima želju da se upozna sa osnovama ove tehnologije bi najpre trablo da zna da je implementacija
+                AJAX-a prilično jednostavna, ali pod uslovom da ste upoznati sa korišćenjem JavaScript-a i HTML-a,
+                primarno.
+            </p>
+            <p>
+                Najvažnije je naglasiti da je svaka aplikacija koja je bazirana upravo na AJAX tehnologiji, zapravo
+                potpuno nezavisna od web pregledača, te da profesionalni programeri koji implementiraju ova pravila
+                svakako poštuju postojeće web standarde, a kojih se naravno i pomenuta tehnologija u potpunosti
+                pridržava.
+            </p>
+        </div>
+    </div>
+
+    <footer class="main-footer pt-2" style="background-color: #0974ba;">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p class="text-foter p-2"><i>Copyright &copy; 2021, FTN Cacak</i></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+[
+    {
+        "metod": "abort()",
+        "opis1": "Otkazuje trenutni zatev"
+    },
+    {
+        "metod": "getAllResponseHeaders()",
+        "opis1": "Vraća sve informacije o header-u"
+    },
+    {
+        "metod": "getResponseHeader()",
+        "opis1": "Vraća specifične informacije o header-u"
+    },
+    {
+        "metod": "open(method,url,async,uname,pswd)",
+        "opis1": "Funkcija kojom se inicira HTTP zahtev a parametri koje prihvata su:<br><li>Metod: POST, GET, HEADER, PUT, DELETE</li><li>ULR je url servera kojem se šalje zahtev</li><li>Asinhronost može biti true ili false u zavisnosti od toga da li zahtev realizuje asinhrono ili sinhrono</li><li>Korisničko ime i šifra su opcioni argumenti koji se navode ukoliko su potrebni za pristup serveru</li>"
+    },
+    {
+        "metod": "send()",
+        "opis1": "Metoda kojom se šalju podaci na server (ako imamo šta da pošaljemo)"
+    },
+    {
+        "metod": "setRequestHeader(header, value)",
+        "opis1": "Pri slanju podataka dodaje label/value par u header-u. Mora da se pozove posle open() a pre send() metode"
+    }
+]
